@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export default function Sidebar() {
   const navLinkClass = ({ isActive }) =>
-    `font-medium ${
+    `font-medium shrink-0 ${
       isActive ? 'text-purple-700 font-semibold' : 'text-gray-700 hover:text-purple-600'
     }`;
 
@@ -19,8 +19,8 @@ export default function Sidebar() {
       </div>
 
       {/* Mobile Navbar (top, scrollable) */}
-      <div className="md:hidden fixed top-0 left-0 w-full bg-white/70 backdrop-blur-sm shadow-md z-50 overflow-x-auto">
-        <div className="flex justify-start gap-6 px-4 py-3 whitespace-nowrap">
+      <div className="md:hidden fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-md">
+        <div className="flex items-center gap-6 px-4 py-3 overflow-x-auto scrollbar-hide">
           <NavLink to="/" className={navLinkClass}>Home</NavLink>
           <NavLink to="/education" className={navLinkClass}>Education</NavLink>
           <NavLink to="/experience" className={navLinkClass}>Experience</NavLink>
