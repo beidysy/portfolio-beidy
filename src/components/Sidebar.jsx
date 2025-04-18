@@ -1,13 +1,19 @@
 // src/components/Sidebar.jsx
+import { NavLink } from 'react-router-dom';
+
 export default function Sidebar() {
-    return (
-      <div className="fixed top-0 right-4 md:right-10 h-screen pt-32 hidden md:flex flex-col gap-4 text-right">
-        <a href="/" className="text-gray-700 hover:text-purple-600 font-medium">Home</a>
-        <a href="/education" className="text-gray-700 hover:text-purple-600 font-medium">Education</a>
-        <a href="/experience" className="text-gray-700 hover:text-purple-600 font-medium">Experience</a>
-        <a href="/projects" className="text-gray-700 hover:text-purple-600 font-medium">Projects</a>
-        <a href="/contact" className="text-gray-700 hover:text-purple-600 font-medium">Contact</a>
-      </div>
-    );
-  }
-  
+  const navLinkClass = ({ isActive }) =>
+    `text-right font-medium ${
+      isActive ? 'text-purple-700 font-semibold' : 'text-gray-700 hover:text-purple-600'
+    }`;
+
+  return (
+    <div className="fixed top-0 right-4 md:right-10 h-screen pt-32 hidden md:flex flex-col gap-4">
+      <NavLink to="/" className={navLinkClass}>Home</NavLink>
+      <NavLink to="/education" className={navLinkClass}>Education</NavLink>
+      <NavLink to="/experience" className={navLinkClass}>Experience</NavLink>
+      <NavLink to="/projects" className={navLinkClass}>Projects</NavLink>
+      <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
+    </div>
+  );
+}
