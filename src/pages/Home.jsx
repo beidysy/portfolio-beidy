@@ -31,7 +31,7 @@ export default function Home() {
               "* I'm Beidy Sy — Cybersecurity & IT Operations Specialist.",
               "* Experienced in DevOps, data analysis, and secure system design.",
               "* Skilled in Python, Linux, Docker, SQL, and automation tools.",
-              "* Bilingual: Fluent in French 🇫🇷 and English 🇨🇦.",
+              "* Bilingual: Fluent in French and English.",
               "* Passionate about cloud, cybersecurity, and solving real-world problems with data.",
               "",
               "➜ ~"
