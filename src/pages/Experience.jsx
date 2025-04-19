@@ -17,7 +17,7 @@ export default function Experience() {
       tech: ["Tutoring", "Excel", "Instructional Design", "Mentorship", "Python", "JavaScript", "Math"]
     },
     {
-      title: "Freelance Graphic Designer",
+      title: "Graphic Designer",
       company: "Self-employed",
       location: "Remote",
       period: "Feb 2018 – Jul 2021",
