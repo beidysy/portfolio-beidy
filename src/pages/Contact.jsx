@@ -33,7 +33,7 @@ export default function Contact() {
           transition={{ delay: 0.2, duration: 0.5 }}
         >
           Whether you're looking for a passionate tech teammate, a cybersecurity specialist,
-          or just want to say hi — I’d love to hear from you!
+          or just want to say hi, I’d love to hear from you!
         </motion.p>
 
         <motion.div

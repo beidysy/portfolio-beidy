@@ -68,6 +68,23 @@ export default function Home() {
       >
         ⚡ Making systems secure. Supporting tech. Always learning.
       </motion.p>
+
+      {/* Download Resume Button */}
+      <motion.div
+        className="mt-6 text-center"
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <a
+          href="/Beidy_Sy_Resume.pdf"
+          download
+          className="inline-block bg-purple-600 text-white px-5 py-2 rounded-full font-medium shadow hover:bg-purple-700 transition"
+        >
+          📄 Download Resume
+        </a>
+      </motion.div>
     </motion.section>
   );
 }

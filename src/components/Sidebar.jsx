@@ -14,6 +14,7 @@ export default function Sidebar() {
         <NavLink to="/" className={navLinkClass}>Home</NavLink>
         <NavLink to="/education" className={navLinkClass}>Education</NavLink>
         <NavLink to="/experience" className={navLinkClass}>Experience</NavLink>
+        <NavLink to="/skills" className={navLinkClass}>Skills</NavLink> 
         <NavLink to="/projects" className={navLinkClass}>Projects</NavLink>
         <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
       </div>
