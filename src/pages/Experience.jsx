@@ -3,6 +3,22 @@ import { motion } from 'framer-motion';
 
 const experiences = [
   {
+    title: 'Technical Support Specialist – Bilingual French',
+    company: 'Geotab',
+    location: 'Oakville, Canada',
+    period: 'July 2025 – Present',
+    highlights: [
+      'Provide enterprise-level technical support for large-scale telematics and SaaS platforms used by commercial fleet customers.',
+      'Troubleshoot application, device, and connectivity issues by analyzing logs, API request/response behavior, and system diagnostics.',
+      'Investigate API-related issues including authentication failures, permission errors, and data inconsistencies across integrated systems.',
+      'Use scripting and structured queries to validate data, reproduce issues, and support root-cause analysis.',
+      'Document findings and escalate complex incidents following structured support and incident-management workflows.',
+      'Collaborate cross-functionally with engineering and operations teams to resolve technical issues and maintain platform reliability.'
+    ],
+    tech: ['Technical Support', 'API Debugging', 'Log Analysis', 'SaaS', 'Scripting', 'Incident Management']
+  },
+
+  {
     title: 'Professional Tutor - Math and Computer Skills',
     company: 'Wilmington University',
     location: 'New Castle, Delaware',
