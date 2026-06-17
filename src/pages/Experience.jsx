@@ -25,8 +25,7 @@ const experiences = [
     period: 'March 2019 – June 2023',
     highlights: [
       'Tutored students one-on-one in math and computer skills, improving GPA outcomes.',
-      'Developed customized study materials and exam preparation resources.',
-      'Supported students in achieving academic goals, with an average exam score of 90%.',
+      'Developed study materials and exam resources, improving student performance with an average exam score of 90%.',
     ],
     tech: ['Math Tutoring', 'Computer Skills', 'Academic Support', 'Resource Development'],
   },
@@ -37,35 +36,11 @@ const experiences = [
     period: 'September 2018 – May 2022',
     highlights: [
       'Delivered L1 technical support for classrooms and campus facilities, setting up devices, projectors, and computers.',
-      'Provided bilingual (French and English) assistance to students and faculty for account setup, password resets, and troubleshooting.',
+      'Provided bilingual (French and English) assistance to students and faculty for account setup, password resets, and software troubleshooting.',
       'Monitored classroom IT setups to ensure systems were functional before lectures.',
       'Translated technical documentation between English and French to improve accessibility.',
     ],
     tech: ['Technical Support', 'French-English Support', 'Active Directory', 'IT Operations'],
-  },
-  {
-    title: 'Freelance UI/UX Designer & Digital Illustrator',
-    company: 'Self-Employed',
-    location: 'Remote',
-    period: 'February 2018 – July 2021',
-    highlights: [
-      'Designed web and mobile graphics optimized for user experience and performance across platforms.',
-      'Created UI mockups, technical illustrations, and marketing assets using Adobe Creative Suite and Procreate.',
-      'Customized layouts, typography, and visuals based on client requirements and UX best practices.',
-    ],
-    tech: ['Adobe Photoshop', 'Procreate', 'UI/UX Design', 'Digital Illustration'],
-  },
-  {
-    title: 'Data Analyst Intern',
-    company: 'SEMA-SA',
-    location: 'Bamako, Mali',
-    period: 'December 2019 – February 2020',
-    highlights: [
-      'Analyzed sales data and provided insights that increased construction pricing in key markets.',
-      'Developed Excel reports to monitor sales trends and flag suspicious transactions.',
-      'Modeled data to predict future trends and supported business decision-making.',
-    ],
-    tech: ['Data Analysis', 'Excel', 'Sales Forecasting', 'Fraud Detection'],
   },
   {
     title: 'Help Desk Technician',
@@ -85,49 +60,50 @@ const experiences = [
 export default function Experience() {
   return (
     <motion.section
-      className="min-h-screen py-16 px-4 bg-gradient-to-b from-purple-50 to-blue-50"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
+      className="py-10"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
     >
-      <div className="max-w-5xl mx-auto">
-        <h1 className="text-4xl font-bold text-purple-700 mb-12">💼 Professional Experience</h1>
+      <p className="font-mono text-xs text-accent-600 dark:text-accent-400 mb-2">$ cd ~/experience</p>
+      <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-1">Experience</h1>
+      <p className="text-slate-500 dark:text-slate-400 mb-10 text-sm">Where I've worked and what I've done.</p>
 
-        <div className="space-y-8">
-          {experiences.map((job, idx) => (
-            <motion.div
-              key={idx}
-              className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300 ease-in-out"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-            >
-              <div className="flex flex-wrap justify-between items-center mb-2">
-                <h2 className="text-xl font-semibold text-gray-800">{job.title}</h2>
-                <span className="text-sm text-gray-500">{job.period}</span>
-              </div>
-              <p className="text-sm text-gray-600 italic mb-2">
-                {job.company} — {job.location}
-              </p>
-              <ul className="list-disc ml-6 text-gray-700 text-sm space-y-1">
-                {job.highlights.map((point, i) => (
-                  <li key={i}>{point}</li>
-                ))}
-              </ul>
-              <div className="mt-4 flex flex-wrap gap-2 text-xs text-purple-700">
-                {job.tech.map((tool, i) => (
-                  <span
-                    key={i}
-                    className="bg-purple-100 px-2 py-1 rounded-full border border-purple-200"
-                  >
-                    {tool}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+      <div className="space-y-6">
+        {experiences.map((job, idx) => (
+          <motion.div
+            key={job.title}
+            className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow p-6"
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: idx * 0.06 }}
+          >
+            <div className="flex flex-wrap justify-between items-baseline gap-2 mb-1">
+              <h2 className="text-lg font-semibold text-slate-900 dark:text-white">{job.title}</h2>
+              <span className="text-xs font-medium text-slate-400 dark:text-slate-500">{job.period}</span>
+            </div>
+            <p className="text-sm text-slate-500 dark:text-slate-400 mb-3">
+              {job.company} — {job.location}
+            </p>
+            <ul className="list-disc ml-5 text-slate-600 dark:text-slate-300 text-sm space-y-1">
+              {job.highlights.map((point, i) => (
+                <li key={i}>{point}</li>
+              ))}
+            </ul>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {job.tech.map((tool) => (
+                <span
+                  key={tool}
+                  className="text-xs font-medium text-accent-700 dark:text-accent-400 bg-accent-50 dark:bg-accent-500/10 px-2 py-1 rounded-md"
+                >
+                  {tool}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        ))}
       </div>
     </motion.section>
   );

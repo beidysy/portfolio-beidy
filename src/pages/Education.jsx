@@ -53,36 +53,38 @@ export default function Education() {
 
   return (
     <motion.section
-      className="min-h-screen py-16 px-4 bg-gradient-to-b from-purple-100 to-purple-50"
-      initial={{ opacity: 0, y: 40 }}
+      className="py-10"
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
     >
-      <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-md p-8">
-        <h1 className="text-3xl font-bold text-purple-700 mb-12">📘 Education</h1>
+      <p className="font-mono text-xs text-accent-600 dark:text-accent-400 mb-2">$ cd ~/education</p>
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm p-8">
+        <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-1">Education</h1>
+        <p className="text-slate-500 dark:text-slate-400 mb-10 text-sm">Degrees and programs that shaped my path.</p>
 
-        <div className="space-y-12 border-l-4 border-purple-400 pl-6">
+        <div className="space-y-10 border-l-2 border-slate-200 dark:border-slate-700 pl-6">
           {education.map((item, idx) => (
             <motion.div
-              key={idx}
-              className="relative pl-8"
-              initial={{ opacity: 0, x: -20 }}
+              key={item.degree}
+              className="relative pl-2"
+              initial={{ opacity: 0, x: -15 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              transition={{ duration: 0.4, delay: idx * 0.08 }}
               viewport={{ once: true }}
             >
-              <div className="absolute left-0 top-2 w-3 h-3 rounded-full bg-purple-500 border-2 border-white shadow-sm" />
+              <div className="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-accent-500 border-2 border-white dark:border-slate-900 shadow-sm" />
 
-              <h2 className="text-xl font-semibold text-gray-800">{item.degree}</h2>
-              <p className="text-sm text-gray-600 italic">
+              <h2 className="text-lg font-semibold text-slate-900 dark:text-white">{item.degree}</h2>
+              <p className="text-sm text-slate-500 dark:text-slate-400 italic">
                 {item.school} — {item.location}
               </p>
-              <p className="text-sm text-gray-600 mb-1">{item.date}</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">{item.date}</p>
               {item.honors && (
-                <p className="text-sm text-purple-600 font-medium mb-2">{item.honors}</p>
+                <p className="text-sm text-accent-600 dark:text-accent-400 font-medium mb-2">{item.honors}</p>
               )}
-              <ul className="list-disc ml-6 text-gray-700 text-sm space-y-1">
+              <ul className="list-disc ml-5 text-slate-600 dark:text-slate-300 text-sm space-y-1">
                 {item.details.map((point, i) => (
                   <li key={i}>{point}</li>
                 ))}

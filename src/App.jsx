@@ -1,27 +1,34 @@
 // src/App.jsx
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Experience from './pages/Experience';
 import Education from './pages/Education';
+import Skills from './pages/Skills';
+import NotFound from './pages/NotFound';
 import Sidebar from './components/Sidebar';
-import Skills from './pages/Skills'; 
-
 
 function App() {
-  return (
-    <div className="bg-gradient-to-br from-sky-100 via-purple-100 to-blue-100 min-h-screen py-10 px-4 md:px-20 scroll-smooth">
-      <Sidebar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/education" element={<Education />} />
-        <Route path="/experience" element={<Experience />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/contact" element={<Contact />} />
-</Routes>
+  const location = useLocation();
 
+  return (
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 pt-20 pb-10 px-4 md:pt-10 md:pl-4 md:pr-40">
+      <Sidebar />
+      <main className="max-w-5xl mx-auto">
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Home />} />
+            <Route path="/education" element={<Education />} />
+            <Route path="/experience" element={<Experience />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </AnimatePresence>
+      </main>
     </div>
   );
 }

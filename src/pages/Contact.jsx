@@ -1,90 +1,74 @@
 // src/pages/Contact.jsx
 import { motion } from 'framer-motion';
+import { Mail, Linkedin, Github } from 'lucide-react';
+
+const links = [
+  {
+    label: 'Email',
+    value: 'beidyasy@gmail.com',
+    href: 'mailto:beidyasy@gmail.com',
+    icon: Mail,
+  },
+  {
+    label: 'LinkedIn',
+    value: 'linkedin.com/in/beidy-sy',
+    href: 'https://www.linkedin.com/in/beidy-sy/',
+    icon: Linkedin,
+  },
+  {
+    label: 'GitHub',
+    value: 'github.com/beidysy',
+    href: 'https://github.com/beidysy',
+    icon: Github,
+  },
+];
 
 export default function Contact() {
   return (
     <motion.section
-      className="min-h-screen py-16 px-4 bg-gradient-to-b from-purple-100 to-blue-50"
-      initial={{ opacity: 0, y: 30 }}
+      className="py-10 flex flex-col items-center"
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -30 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
     >
+      <p className="font-mono text-xs text-accent-600 dark:text-accent-400 mb-4 self-start">$ ./contact.sh</p>
+
       <motion.div
-        className="max-w-3xl mx-auto text-center bg-white rounded-xl shadow-lg p-10 border-l-4 border-purple-400"
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
+        className="w-full max-w-2xl bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm p-10 text-center"
+        initial={{ opacity: 0, scale: 0.97 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.4 }}
       >
-        <motion.h1
-          className="text-3xl font-bold text-purple-700 mb-6"
-          initial={{ y: -10, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          🚀 Let's Connect
-        </motion.h1>
+        <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">Let's Connect</h1>
+        <p className="text-slate-500 dark:text-slate-400 text-sm mb-8 max-w-md mx-auto">
+          Whether you're hiring, collaborating, or just want to say hi — I'd love to hear from you.
+        </p>
 
-        <motion.p
-          className="text-gray-700 text-md mb-6"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-        >
-          Whether you're looking for a passionate tech teammate, a cybersecurity specialist,
-          or just want to say hi, I’d love to hear from you!
-        </motion.p>
-
-        <motion.div
-          className="space-y-4 text-sm text-gray-600"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-        >
-          <p>
-            📬 <span className="font-semibold">Email:</span>{' '}
-            <a
-              href="mailto:beidyasy@gmail.com"
-              className="text-purple-700 hover:underline"
+        <div className="space-y-3">
+          {links.map(({ label, value, href, icon: Icon }) => (
+            <motion.a
+              key={label}
+              href={href}
+              target={href.startsWith('http') ? '_blank' : undefined}
+              rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              whileHover={{ y: -2 }}
+              className="flex items-center gap-3 bg-slate-50 dark:bg-slate-800 hover:bg-accent-50 dark:hover:bg-accent-500/10 border border-slate-200 dark:border-slate-700 hover:border-accent-300 dark:hover:border-accent-500 rounded-xl px-4 py-3 text-left transition-colors group"
             >
-              beidyasy@gmail.com
-            </a>
-          </p>
+              <span className="p-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 group-hover:text-accent-600 dark:group-hover:text-accent-400 group-hover:border-accent-300 dark:group-hover:border-accent-500 transition-colors">
+                <Icon size={18} />
+              </span>
+              <span>
+                <span className="block text-xs text-slate-400 dark:text-slate-500">{label}</span>
+                <span className="block text-sm font-medium text-slate-800 dark:text-slate-200 group-hover:text-accent-700 dark:group-hover:text-accent-400">
+                  {value}
+                </span>
+              </span>
+            </motion.a>
+          ))}
+        </div>
 
-          <p>
-            💼 <span className="font-semibold">LinkedIn:</span>{' '}
-            <a
-              href="https://www.linkedin.com/in/beidy-sy/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-purple-700 hover:underline"
-            >
-              linkedin.com/in/beidy-sy
-            </a>
-          </p>
-
-          <p>
-            💻 <span className="font-semibold">GitHub:</span>{' '}
-            <a
-              href="https://github.com/beidysy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-purple-700 hover:underline"
-            >
-              github.com/beidysy
-            </a>
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="mt-10 text-sm text-gray-400"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.4 }}
-        >
-          Beidy Sy
-        </motion.div>
+        <p className="mt-8 text-xs text-slate-400 dark:text-slate-500">Beidy Sy</p>
       </motion.div>
     </motion.section>
   );

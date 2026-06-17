@@ -1,52 +1,76 @@
 // src/pages/Skills.jsx
 import { motion } from 'framer-motion';
 
-const skills = [
-  'French',
-  'Python',
-  'Linux',
-  'Docker',
-  'Git',
-  'Bash',
-  'SQL',
-  'JavaScript',
-  'React',
-  'Networking',
-  'Cybersecurity Tools',
-  'DevOps',
-  'Data Analysis',
-  'PowerShell',
-  'Cloud Platforms',
+const skillGroups = [
+  {
+    category: 'Programming / Scripting',
+    items: ['Python', 'JavaScript', 'SQL'],
+  },
+  {
+    category: 'Operating Systems',
+    items: ['Windows', 'Linux (Ubuntu, Kali)', 'macOS'],
+  },
+  {
+    category: 'Cybersecurity & SIEM',
+    items: ['CrowdStrike', 'Elastic SIEM', 'KQL', 'Splunk', 'Nmap', 'Burp Suite', 'SQLMap', 'Malware Analysis', 'Bugcrowd'],
+  },
+  {
+    category: 'Databases',
+    items: ['PostgreSQL', 'MySQL', 'SQL Server', 'MongoDB'],
+  },
+  {
+    category: 'IT Support & Systems',
+    items: ['Active Directory', 'Microsoft 365', 'SaaS Support', 'API Troubleshooting', 'Log Analysis', 'Ticketing Systems', 'VPN', 'TCP/IP', 'DNS', 'DHCP'],
+  },
+  {
+    category: 'Cloud & Tools',
+    items: ['AWS', 'Azure', 'Git', 'Jira', 'Slack', 'Salesforce', 'Tableau', 'Excel'],
+  },
+  {
+    category: 'Languages',
+    items: ['French (Fluent)', 'English (Fluent)'],
+  },
 ];
 
 export default function Skills() {
   return (
     <motion.section
-      className="min-h-screen py-16 px-4 bg-gradient-to-b from-purple-50 to-blue-50"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
+      className="py-10"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
     >
-      <div className="max-w-5xl mx-auto text-center">
-        <h1 className="text-4xl font-bold text-purple-700 mb-12">🧠 My Skills</h1>
+      <p className="font-mono text-xs text-accent-600 dark:text-accent-400 mb-2">$ cat skills.json</p>
+      <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-1">Skills</h1>
+      <p className="text-slate-500 dark:text-slate-400 mb-10 text-sm">A snapshot of what I work with day to day.</p>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={index}
-              className="bg-white shadow-md rounded-lg p-4 hover:shadow-xl transition-all"
-              initial={{ y: 20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-            >
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">{skill}</h3>
-              <div className="w-full h-2 bg-purple-100 rounded-full overflow-hidden">
-                <div className="h-full bg-purple-500 rounded-full animate-pulse w-[90%]" />
-              </div>
-            </motion.div>
-          ))}
-        </div>
+      <div className="space-y-8">
+        {skillGroups.map((group, gIdx) => (
+          <motion.div
+            key={group.category}
+            initial={{ y: 15, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: gIdx * 0.05 }}
+          >
+            <h2 className="text-xs font-semibold uppercase tracking-wide text-accent-600 dark:text-accent-400 mb-3">
+              {group.category}
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {group.items.map((skill) => (
+                <motion.span
+                  key={skill}
+                  whileHover={{ scale: 1.06, y: -2 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                  className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm px-3 py-1.5 rounded-lg shadow-sm hover:border-accent-300 dark:hover:border-accent-500 hover:text-accent-700 dark:hover:text-accent-400 transition-colors"
+                >
+                  {skill}
+                </motion.span>
+              ))}
+            </div>
+          </motion.div>
+        ))}
       </div>
     </motion.section>
   );
