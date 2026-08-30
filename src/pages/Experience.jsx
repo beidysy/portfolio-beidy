@@ -8,14 +8,27 @@ const experiences = [
     location: 'Oakville, Canada',
     period: 'July 2025 – Present',
     highlights: [
-      'Provide enterprise-level technical support for large-scale telematics and SaaS platforms used by commercial fleet customers.',
-      'Troubleshoot application, device, and connectivity issues by analyzing logs, API request/response behavior, and system diagnostics.',
-      'Investigate API-related issues including authentication failures, permission errors, and data inconsistencies across integrated systems.',
-      'Use scripting and structured queries to validate data, reproduce issues, and support root-cause analysis.',
-      'Document findings and escalate complex incidents following structured support and incident-management workflows.',
-      'Collaborate cross-functionally with engineering and operations teams to resolve technical issues and maintain platform reliability.'
+      'Provide enterprise-level technical support for large-scale telematics and SaaS platforms supporting commercial fleet customers across North America and international markets in French and English.',
+      'Troubleshoot application, device, connectivity, authentication, authorization/permission, account access, and API integration issues through log analysis, request/response review, system diagnostics, and structured troubleshooting.',
+      'Investigate API authentication failures, permission errors, integration behavior, backend workflows, and data inconsistencies across connected enterprise systems.',
+      'Use scripting and structured queries to validate data, reproduce technical issues, isolate failure points, and support root-cause analysis and engineering investigations.',
+      'Document investigation findings, maintain detailed technical case records, and escalate complex incidents through structured support and incident-management workflows.',
+      'Collaborate cross-functionally with engineering and operations teams to resolve customer-impacting incidents, recurring technical issues, and platform reliability concerns.'
     ],
     tech: ['Technical Support', 'API Debugging', 'Log Analysis', 'SaaS', 'Scripting', 'Incident Management']
+  },
+  {
+    title: 'Internal Cybersecurity Operations Program',
+    company: 'Geotab',
+    location: 'Oakville, Canada',
+    period: 'January 2026 – March 2026',
+    highlights: [
+      'Participated in enterprise cybersecurity workflows spanning SOC monitoring, security alert review, incident triage, phishing investigations, vulnerability management, and software security approvals.',
+      'Worked with CrowdStrike, Elastic SIEM, KQL, Google Admin, and Bugcrowd in security investigation and monitoring workflows.',
+      'Reviewed security alerts, detection logic, endpoint telemetry, SIEM data, phishing indicators, vulnerability reports, and incident escalation procedures.',
+      'Applied security log analysis and investigation concepts to understand alert context, detection and triage processes, and cross-team incident handling.'
+    ],
+    tech: ['SOC Monitoring', 'CrowdStrike', 'Elastic SIEM', 'KQL', 'Incident Triage', 'Phishing Analysis', 'Vulnerability Management']
   },
 
   {
